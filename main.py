@@ -1,4 +1,6 @@
 from random import choice
+
+
 from professores import *
 
 
@@ -9,6 +11,7 @@ ovelha = []
 juniores = []
 p_m = []
 verification = []
+
 #-----------------------------------------------------------
 escolha_ped = ''
 escolha_ove = ''
@@ -28,17 +31,29 @@ def registrando_nome():
             juniores.append(prof['Nome'])
         elif prof['Turma'] == 'P_Missionários':
             p_m.append(prof['Nome'])
-    
+
+
 #Gera a string da escala
 def gerar():
+    if c%2 == 0:
+        if c == 2:
+            print('Ceia (Manhã)')
+        else:
+            print('Domingo (Manhã)')
+    else:
+        if c == 3:
+            print('Ceia (Noite)')
+        else:
+            print('Domingo (Noite)')
+        
     print(f'Pedacinho:{escolha_ped}'
     f'\nOvelhinha:{escolha_ove}'
     f'\nJuniores:{escolha_jun}'
-    f'\nP_Missionários:{escolha_pm}'.format(end = ' '))
+    f'\nP_Missionários:{escolha_pm}')
     print('')
 
 #Verifica se o nome sorteado já foi usado 2 vezes. 
-# Se sim, apagará ele da lista para n ser mais usado
+# Se sim, será apagado da lista principal para não ser mais usado
 def validation():
     for z in verification:
         if verification.count(z) == 2:
@@ -50,7 +65,6 @@ def validation():
                 juniores.remove(z)
             elif z in p_m:
                 p_m.remove(z)
-
 
 
 registrando_nome()
