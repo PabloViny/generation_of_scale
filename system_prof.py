@@ -13,15 +13,9 @@ p_m = []
 verification = []
 
 #-----------------------------------------------------------
-escolha_ped = ''
-escolha_ove = ''
-escolha_jun = ''
-escolha_pm = ''
-#-----------------------------------------------------------
 
 #Registra os nomes de cada professor em sua determinada sala    
 def registrando_nome():
-    
     for prof in professor:
         if prof['Turma'] == 'Pedaço':
             pedaco.append(prof['Nome'])
@@ -35,22 +29,27 @@ def registrando_nome():
 
 #Gera a string da escala
 def gerar(c,nomes):
-    if c%2 == 0:
-        if c == 2:
-            print('Ceia (Manhã)')
-        else:
-            print('Domingo (Manhã)')
-    else:
-        if c == 3:
-            print('Ceia (Noite)')
-        else:
-            print('Domingo (Noite)')
-        
+    shift(c)
     print(f'Pedacinho: {nomes[0]}'
     f'\nOvelhinha: {nomes[1]}'
     f'\nJuniores: {nomes[2]}'
     f'\nP_Missionários: {nomes[3]}')
     print('')
+    
+def shift(c):
+    turno:str = ''
+    if c%2 == 0:
+        if c == 2:
+            turno = 'Ceia (Manhã)'
+        else:
+            turno = 'Domingo (Manhã)'
+    else:
+        if c == 3:
+            turno ='Ceia (Noite)'
+        else:
+            turno = 'Domingo (Noite)'
+
+    return print(turno)
 
 #Verifica se o nome sorteado já foi usado 2 vezes. 
 # Se sim, será apagado da lista principal para não ser mais usado
