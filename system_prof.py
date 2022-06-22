@@ -53,6 +53,17 @@ def sorteio():
 def impressao():
     r = 0
     for c in range (0,8):
+        if c%2 == 0:
+            if c == 2:
+                print('Ceia (Manhã)')
+            else:
+                print('Domingo (Manhã)')
+        else:
+            if c == 3:
+                print('Ceia (Noite)')
+            else:
+                print('Domingo (Noite)')
+
         print(f'Pedaço: {escolhidos[0 + r]}')
         print(f'Ovelha: {escolhidos[8 + r]}')
         print(f'Juniores: {escolhidos[16 + r]}')
