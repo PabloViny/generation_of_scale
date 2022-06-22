@@ -38,17 +38,18 @@ def sorteio():
             run = True
             while run:
                 people = choice(salas[s])
-                if people == escolhidos[d-1]:
-                    pass
-                elif people == escolhidos[d-2]:
+                if people == escolhidos[d-1] or people == escolhidos[d-2]:
                     pass
                 else:
+                    if len(escolhidos) >= 4:
+                        if people == escolhidos[d-3]:
+                            continue
                     escolhidos.append(people)
                     d += 1
                     run = False 
             verificacao()
                 
-    print(', '.join(map(str, escolhidos)))
+    #print(', '.join(map(str, escolhidos)))
     
 
 def impressao():
