@@ -30,24 +30,25 @@ def registrando_nome():
 
 def sorteio():
     d = 0
-    for b in range (0,4):
-        people = choice(salas[b])
+    for s in range (0,4):
+        people = choice(salas[s])
         escolhidos.append(people) 
         d += 1
         for c in range (1,8):
             run = True
             while run:
-                people = choice(salas[b])
+                people = choice(salas[s])
                 if people == escolhidos[d-1]:
+                    pass
+                elif people == escolhidos[d-2]:
                     pass
                 else:
                     escolhidos.append(people)
                     d += 1
                     run = False 
             verificacao()
-        
-          
-    #print(', '.join(map(str, escolhidos)))
+                
+    print(', '.join(map(str, escolhidos)))
     
 
 def impressao():
@@ -82,12 +83,5 @@ def verificacao():
                 juniores.remove(z)
             elif z in p_m:
                 p_m.remove(z)
-
-        
-        
-
-
-
-
 
 #print(', '.join(map(str, escolhidos)))
