@@ -10,7 +10,9 @@ pedaco = []
 ovelha = []
 juniores = []
 p_m = []
-verification = []
+escolhidos = []
+salas = [pedaco, ovelha, juniores, p_m]
+people = ''
 
 #-----------------------------------------------------------
 
@@ -26,36 +28,41 @@ def registrando_nome():
         elif prof['Turma'] == 'P_Missionários':
             p_m.append(prof['Nome'])
 
-
-#Gera a string da escala
-def gerar(c,nomes):
-    shift(c)
-    print(f'Pedacinho: {nomes[0]}'
-    f'\nOvelhinha: {nomes[1]}'
-    f'\nJuniores: {nomes[2]}'
-    f'\nP_Missionários: {nomes[3]}')
-    print('')
+def sorteio():
+    d = 0
+    for b in range (0,4):
+        people = choice(salas[b])
+        escolhidos.append(people) 
+        d += 1
+        for c in range (1,8):
+            run = True
+            while run:
+                people = choice(salas[b])
+                if people == escolhidos[d-1]:
+                    pass
+                else:
+                    escolhidos.append(people)
+                    d += 1
+                    run = False 
+            verificacao()
+        
+          
+    #print(', '.join(map(str, escolhidos)))
     
-def shift(c):
-    turno:str = ''
-    if c%2 == 0:
-        if c == 2:
-            turno = 'Ceia (Manhã)'
-        else:
-            turno = 'Domingo (Manhã)'
-    else:
-        if c == 3:
-            turno ='Ceia (Noite)'
-        else:
-            turno = 'Domingo (Noite)'
 
-    return print(turno)
+def impressao():
+    r = 0
+    for c in range (0,8):
+        print(f'Pedaço: {escolhidos[0 + r]}')
+        print(f'Ovelha: {escolhidos[8 + r]}')
+        print(f'Juniores: {escolhidos[16 + r]}')
+        print(f'Peq_Missionários: {escolhidos[24 + r]}')
+        print('')
+        r += 1
 
-#Verifica se o nome sorteado já foi usado 2 vezes. 
-# Se sim, será apagado da lista principal para não ser mais usado
-def validation():
-    for z in verification:
-        if verification.count(z) == 2:
+def verificacao():
+    for z in escolhidos:
+        if escolhidos.count(z) == 2:
             if z in pedaco:
                 pedaco.remove(z)
             elif z in ovelha:
@@ -64,3 +71,12 @@ def validation():
                 juniores.remove(z)
             elif z in p_m:
                 p_m.remove(z)
+
+        
+        
+
+
+
+
+
+#print(', '.join(map(str, escolhidos)))
