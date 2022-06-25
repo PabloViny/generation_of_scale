@@ -29,23 +29,23 @@ def registrando_nome():
             p_m.append(prof['Nome'])
 
 def sorteio():
-    d = 0
+    cont = 0
     for s in range (0,4):
         people = choice(salas[s])
         escolhidos.append(people) 
-        d += 1
+        cont += 1
         for c in range (1,8):
             run = True
             while run:
                 people = choice(salas[s])
-                if people == escolhidos[d-1] or people == escolhidos[d-2]:
+                if people == escolhidos[cont-1] or people == escolhidos[cont-2]:
                     pass
                 else:
                     if len(escolhidos) >= 4:
-                        if people == escolhidos[d-3]:
+                        if people == escolhidos[cont-3]:
                             continue
                     escolhidos.append(people)
-                    d += 1
+                    cont += 1
                     run = False 
             verificacao()
                 
