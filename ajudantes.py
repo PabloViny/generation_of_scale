@@ -1,10 +1,10 @@
-gisele = {'Nome':'Gisele','Turma':'Pedaço'}
-brisa = {'Nome':'Brisa','Turma':'Pedaço'}
-lane = {'Nome':'Cailane','Turma':'Pedaço'}
+gisele = {'Nome':'Gisele','Turma':'Pedaço','Status': 1}
+brisa = {'Nome':'Brisa','Turma':'Pedaço','Status': 1}
+lane = {'Nome':'Cailane','Turma':'Pedaço','Status': 1}
 #--------------------------------------------------------
-kailan = {'Nome':'Kailan','Turma':'Ovelha'}
+kailan = {'Nome':'Kailan','Turma':'Ovelha','Status': 1}
 #--------------------------------------------------------
-kell = {'Nome':'Raquel','Turma': ['Pedaço','Ovelha'],'Status': 0}
-nara = {'Nome':'Nara','Turma': ['Pedaço','Ovelha'],'Status': 0}
-bella = {'Nome':'Bella','Turma': ['Pedaço', 'Ovelha'],'Status': 0}
+kell = {'Nome':'Raquel','Turma': ['Pedaço','Ovelha'],'Status': 1}
+nara = {'Nome':'Nara','Turma': ['Pedaço','Ovelha'],'Status': 1}
+bella = {'Nome':'Bella','Turma': ['Pedaço', 'Ovelha'],'Status': 1}
 
