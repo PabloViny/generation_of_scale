@@ -18,29 +18,32 @@ class Ajudantes:
             run = True
             ajud = self.ajud['Nome']
 
-            if type(self.ajud['Turma']) == list:       
-                while run:
-                    print(f'O elemento "{ajud}" está em mais de 1 sala.')
-                    print(f' 0 - Pedaço\n 1 - Ovelha')
-                    pick = input('Digite o código que deve ser utilizado: ')
-                    if pick.isnumeric() == False:
-                        print('Letras e caracteres especiais NÃO SÃO VÁLIDOS !\n')
-                        continue
-                    else:
-                        if pick == '0':
-                            self.pedaco.append(ajud)
-                            run = False
-                        elif pick == '1':
-                            self.ovelha.append(ajud)
-                            run = False
-                        else:
-                            print('Escolha uma opção válida.\n')
-                        
+            if self.ajud['Status'] == 0:
+                continue
             else:
-                if self.ajud['Turma'] == 'Pedaço':
-                    self.pedaco.append(self.ajud['Nome'])
-                elif self.ajud['Turma'] == 'Ovelha':
-                    self.ovelha.append(self.ajud['Nome'])               
+                if type(self.ajud['Turma']) == list:       
+                    while run:
+                        print(f'O elemento "{ajud}" está em mais de 1 sala.')
+                        print(f' 0 - Pedaço\n 1 - Ovelha')
+                        pick = input('Digite o código que deve ser utilizado: ')
+                        if pick.isnumeric() == False:
+                            print('Letras e caracteres especiais NÃO SÃO VÁLIDOS !\n')
+                            continue
+                        else:
+                            if pick == '0':
+                                self.pedaco.append(ajud)
+                                run = False
+                            elif pick == '1':
+                                self.ovelha.append(ajud)
+                                run = False
+                            else:
+                                print('Escolha uma opção válida.\n')
+                            
+                else:
+                    if self.ajud['Turma'] == 'Pedaço':
+                        self.pedaco.append(self.ajud['Nome'])
+                    elif self.ajud['Turma'] == 'Ovelha':
+                        self.ovelha.append(self.ajud['Nome'])               
 
     def draw_name(self):
         cont = 0
@@ -61,9 +64,7 @@ class Ajudantes:
                         self.selected.append(self.people)
                         cont += 1
                         run = False
-        
-       
-
+           
     def print_out(self):
         r = 0
         for c in range (0,8):      
@@ -73,14 +74,13 @@ class Ajudantes:
                     print(f'Ajudante_Ovelha: {self.selected[5 + r]}')
                     r += 1
                 else:
-                    print('Ajudante_Pedaço:')
+                    print('\nAjudante_Pedaço:')
                     print('Ajudante_Ovelha:')
             else:
                 print(f'Ajudante_Pedaço: {self.selected[0 + r]}')
                 print(f'Ajudante_Ovelha: {self.selected[5 + r]}\n')
                 r += 1
             
-
     def verificacao(self):
         for z in self.selected:
             if self.selected.count(z) == 2:
