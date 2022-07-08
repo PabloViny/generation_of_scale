@@ -16,12 +16,12 @@ class Ajudantes:
     def register_names(self):  
         for self.ajud in self.ajudantes:
             run = True
-            ajud = self.ajud['Nome']
+            ajud = self.ajud['Name']
 
             if self.ajud['Status'] == 0:
                 continue
             else:
-                if type(self.ajud['Turma']) == list:       
+                if type(self.ajud['Class']) == list:       
                     while run:
                         print(f'O elemento "{ajud}" está em mais de 1 sala.')
                         print(f' 0 - Pedaço\n 1 - Ovelha')
@@ -40,10 +40,10 @@ class Ajudantes:
                                 print('Escolha uma opção válida.\n')
                             
                 else:
-                    if self.ajud['Turma'] == 'Pedaço':
-                        self.pedaco.append(self.ajud['Nome'])
-                    elif self.ajud['Turma'] == 'Ovelha':
-                        self.ovelha.append(self.ajud['Nome'])               
+                    if self.ajud['Class'] == 'Pedaço':
+                        self.pedaco.append(self.ajud['Name'])
+                    elif self.ajud['Class'] == 'Ovelha':
+                        self.ovelha.append(self.ajud['Name'])               
 
     def draw_name(self):
         cont = 0
